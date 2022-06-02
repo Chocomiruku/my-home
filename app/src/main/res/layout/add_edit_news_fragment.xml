@@ -46,8 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:inputType="text"
-            android:lines="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="8"
             android:maxLines="12" />
 
     </com.google.android.material.textfield.TextInputLayout>

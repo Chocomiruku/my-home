@@ -1,32 +1,28 @@
 package com.chocomiruku.myhome.presentation.splash
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.chocomiruku.myhome.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.chocomiruku.myhome.databinding.SplashFragmentBinding
 
 class SplashFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SplashFragment()
-    }
-
-    private lateinit var viewModel: SplashViewModel
+    private var _binding: SplashFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.splash_fragment, container, false)
-    }
+    ): View {
+        _binding = SplashFragmentBinding.inflate(inflater, container, false)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        binding.splashIcon.setOnClickListener {
+            this.findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToSignInFragment())
+        }
 
+        return binding.root
+    }
 }

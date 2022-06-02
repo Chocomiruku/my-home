@@ -90,7 +90,7 @@
         android:id="@+id/current_user_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="phone_icon, phone_text, contract_icon, contract_text, edit_btn"
         tools:visibility="visible" />
 

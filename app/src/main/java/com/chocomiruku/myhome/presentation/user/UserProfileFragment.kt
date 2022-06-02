@@ -6,27 +6,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.chocomiruku.myhome.R
+import com.chocomiruku.myhome.databinding.AddEditNewsFragmentBinding
+import com.chocomiruku.myhome.databinding.UserProfileFragmentBinding
 
 class UserProfileFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = UserProfileFragment()
-    }
-
-    private lateinit var viewModel: UserProfileViewModel
+    private var _binding: UserProfileFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.user_profile_fragment, container, false)
-    }
+    ): View {
+        _binding = UserProfileFragmentBinding.inflate(inflater, container, false)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        binding.editBtn.setOnClickListener {
+            this.findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToEditProfileFragment())
+        }
 
+        return binding.root
+    }
 }

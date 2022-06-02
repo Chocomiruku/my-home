@@ -29,4 +29,6 @@
     <string name="message_text">Текст сообщения</string>
     <string name="time_example">12:45</string>
     <string name="enter_message">Напишите сообщение…</string>
+    <string name="get_access">Получить доступ</string>
+    <string name="add_news_fab_content_desc">Добавить новость</string>
 </resources>

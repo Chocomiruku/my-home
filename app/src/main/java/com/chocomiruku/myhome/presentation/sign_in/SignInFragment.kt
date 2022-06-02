@@ -1,32 +1,32 @@
 package com.chocomiruku.myhome.presentation.sign_in
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.chocomiruku.myhome.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.chocomiruku.myhome.databinding.SignInFragmentBinding
 
 class SignInFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SignInFragment()
-    }
-
-    private lateinit var viewModel: SignInViewModel
+    private var _binding: SignInFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.sign_in_fragment, container, false)
-    }
+    ): View {
+        _binding = SignInFragmentBinding.inflate(inflater, container, false)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        binding.signInBtn.setOnClickListener {
+            this.findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToNewsFeedFragment())
+        }
 
+        binding.getAccessBtn.setOnClickListener {
+            this.findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
+        }
+
+        return binding.root
+    }
 }

@@ -1,32 +1,28 @@
 package com.chocomiruku.myhome.presentation.user_edit
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.chocomiruku.myhome.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.chocomiruku.myhome.databinding.EditProfileFragmentBinding
 
 class EditProfileFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = EditProfileFragment()
-    }
-
-    private lateinit var viewModel: EditProfileViewModel
+    private var _binding: EditProfileFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.edit_profile_fragment, container, false)
-    }
+    ): View {
+        _binding = EditProfileFragmentBinding.inflate(inflater, container, false)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        binding.saveBtn.setOnClickListener {
+            this.findNavController().navigateUp()
+        }
 
+        return binding.root
+    }
 }
