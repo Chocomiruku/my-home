@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="header_h1_colored">
+        <item name="fontFamily">@font/rs_semibold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/green_500</item>
+    </style>
+
+    <style name="header_h2_colored">
+        <item name="fontFamily">@font/rs_semibold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/green_500</item>
+    </style>
+
+    <style name="header_h4_colored">
+        <item name="fontFamily">@font/proximanova_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/violet_500</item>
+    </style>
+
+    <style name="header_h5_colored">
+        <item name="fontFamily">@font/proximanova_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/violet_500</item>
+    </style>
+
+    <style name="header_h3_default">
+        <item name="fontFamily">@font/proximanova_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/gray_700</item>
+    </style>
+
+    <style name="text">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray_500</item>
+    </style>
+
+    <style name="text_chat">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray_700</item>
+    </style>
+
+    <style name="text_chat_time">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_500</item>
+    </style>
+
+    <style name="label_default">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray_500</item>
+    </style>
+
+    <style name="edit_text">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/gray_700</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button" parent="">
+        <item name="colorPrimary">@color/violet_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/proximanova_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/proximanova_bold</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.App.Headline6</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorPrimaryVariant">@color/green_800</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/rs_semibold</item>
+        <item name="android:fontFamily">@font/rs_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/TextField.ShapeAppearance.App.SmallComponent</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+        <item name="startIconTint">@color/violet_300</item>
+        <item name="endIconTint">@color/violet_300</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorOnSurface">@color/gray_800</item>
+        <item name="colorError">@color/pink_500</item>
+<!--        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>-->
+<!--        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>-->
+        <item name="editTextStyle">@style/MaterialComponents.TextInputEditText</item>
+    </style>
+
+<!--    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">-->
+<!--        <item name="fontFamily">@font/proximanova_regular</item>-->
+<!--        <item name="android:fontFamily">@font/proximanova_regular</item>-->
+<!--    </style>-->
+
+<!--    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">-->
+<!--        <item name="fontFamily">@font/proximanova_regular</item>-->
+<!--        <item name="android:fontFamily">@font/proximanova_regular</item>-->
+<!--    </style>-->
+
+    <style name="TextField.ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="MaterialComponents.TextInputEditText" parent="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:fontFamily">@font/proximanova_regular</item>
+    </style>
+
+    <style name="rounded_corners_img_view" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="Widget.App.Button.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">52dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.IconOnly</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent.IconOnly</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button.IconOnly" parent="">
+        <item name="colorPrimary">@color/green_200</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent.IconOnly" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+        <item name="android:textColor">@color/gray_700</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Switch" parent="">
+        <item name="colorOnSurface">@color/green_200</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:fontFamily">@font/proximanova_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/feed"
+        android:enabled="true"
+        android:icon="@drawable/ic_news"
+        android:menuCategory="secondary"
+        android:title="@string/news_feed" />
+    <item
+        android:id="@+id/chat"
+        android:enabled="true"
+        android:icon="@drawable/ic_chat"
+        android:menuCategory="secondary"
+        android:title="@string/chat" />
+    <item
+        android:id="@+id/user_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:menuCategory="secondary"
+        android:title="@string/user_profile" />
+</menu>

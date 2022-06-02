@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">My Home</string>
+    <string name="app_name">Мой Дом</string>
+    <string name="news_feed">Новости</string>
+    <string name="chat">Чат</string>
+    <string name="user_profile">Мой профиль</string>
+    <string name="splash_icon_content_description">Splash Icon</string>
+    <string name="sign_in">Авторизация</string>
+    <string name="phone">Номер телефона</string>
+    <string name="contract_number">Номер договора</string>
+    <string name="sign_in_btn">Войти</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="sign_up_btn">Зарегистрироваться</string>
+    <string name="title">Заголовок</string>
+    <string name="news_image_content_description">Изображение, прикреплённое к новости</string>
+    <string name="example_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="enter_title">Введите заголовок:</string>
+    <string name="news_text_hint">О чём вы хотите рассказать?</string>
+    <string name="title_text_hint">Заголовок</string>
+    <string name="publish">Опубликовать</string>
+    <string name="image_added">Фото прикреплено.</string>
+    <string name="phone_icon_content_description">Номер телефона</string>
+    <string name="phone_example">+7 (900) 111 0500</string>
+    <string name="contact_example">455 022 123</string>
+    <string name="edit">Редактировать</string>
+    <string name="change_profile_pic"><u>Изменить</u></string>
+    <string name="enable_notifications">Получать уведомления</string>
+    <string name="save">Сохранить</string>
+    <string name="message_text">Текст сообщения</string>
+    <string name="time_example">12:45</string>
+    <string name="enter_message">Напишите сообщение…</string>
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_padding">50dp</dimen>
+    <dimen name="medium_margin">22dp</dimen>
+    <dimen name="big_margin">38dp</dimen>
+    <dimen name="btn_height">55dp</dimen>
+    <dimen name="large_margin">64dp</dimen>
+    <dimen name="tiny_margin">6dp</dimen>
+    <dimen name="small_margin">12dp</dimen>
+    <dimen name="list_item_elevation">8dp</dimen>
+    <dimen name="user_pic_size">220dp</dimen>
+    <dimen name="user_pic_size_edit">130dp</dimen>
+    <dimen name="user_pic_size_chat">50dp</dimen>
+    <dimen name="elevation">6dp</dimen>
+    <dimen name="character_info_card_corner_radius">20dp</dimen>
+</resources>
