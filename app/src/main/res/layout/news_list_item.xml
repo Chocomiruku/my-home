@@ -17,17 +17,44 @@
         android:layout_marginTop="@dimen/medium_margin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edit_btn"
         tools:text="@string/title"
         android:maxLines="2"
         style="@style/header_h3_default" />
+
+    <Button
+        android:id="@+id/edit_btn"
+        style="@style/Widget.App.Button.IconOnly"
+        android:layout_width="@dimen/btn_size"
+        android:layout_height="@dimen/btn_size"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:icon="@drawable/ic_baseline_edit_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/delete_btn"
+        android:layout_marginEnd="@dimen/tiny_margin"
+        android:layout_marginTop="@dimen/medium_margin"/>
+
+    <Button
+        android:id="@+id/delete_btn"
+        style="@style/Widget.App.Button.IconOnly"
+        android:layout_width="@dimen/btn_size"
+        android:layout_height="@dimen/btn_size"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:icon="@drawable/ic_baseline_delete_forever_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/pink_500"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginTop="@dimen/medium_margin"/>
 
     <TextView
         android:id="@+id/news_text"
         android:layout_width="0dp"
         android:layout_marginHorizontal="@dimen/big_margin"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/big_margin"
         app:layout_constraintTop_toBottomOf="@id/title_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,7 @@
     <string name="user_profile">Мой профиль</string>
     <string name="splash_icon_content_description">Splash Icon</string>
     <string name="sign_in">Авторизация</string>
-    <string name="phone">Номер телефона</string>
+    <string name="email">Электронная почта</string>
     <string name="contract_number">Номер договора</string>
     <string name="sign_in_btn">Войти</string>
     <string name="sign_up">Регистрация</string>
@@ -31,4 +31,11 @@
     <string name="enter_message">Напишите сообщение…</string>
     <string name="get_access">Получить доступ</string>
     <string name="add_news_fab_content_desc">Добавить новость</string>
+    <string name="email_example">test@gmail.com</string>
+    <string name="letter_example">А</string>
+    <string name="set_admin_rights">Назначить администратором</string>
+    <string name="password">Пароль</string>
+    <string name="sign_up_error">При регистрации возникла неизвестная ошибка. Пожалуйста, попробуйте снова.</string>
+    <string name="sign_up_success">Регистрация прошла успешно.</string>
+    <string name="contract_not_exist">Договор с указанным номером не был найден. Пожалуйста, проверьте введённые данные и попробуйте снова.</string>
 </resources>

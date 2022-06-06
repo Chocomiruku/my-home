@@ -8,38 +8,69 @@
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.chocomiruku.myhome.presentation.sign_in.SignInFragment"
-        android:label="SignInFragment" >
-        <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+        android:label="SignInFragment">
         <action
             android:id="@+id/action_signInFragment_to_newsFeedFragment"
-            app:destination="@id/newsFeedFragment" />
+            app:destination="@id/newsFeedFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
     </fragment>
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.chocomiruku.myhome.presentation.sign_up.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.chocomiruku.myhome.presentation.splash.SplashFragment"
         android:label="splash_fragment"
-        tools:layout="@layout/splash_fragment" >
+        tools:layout="@layout/splash_fragment">
         <action
             android:id="@+id/action_splashFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_splashFragment_to_newsFeedFragment"
-            app:destination="@id/newsFeedFragment" />
+            app:destination="@id/newsFeedFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/newsFeedFragment"
         android:name="com.chocomiruku.myhome.presentation.feed.NewsFeedFragment"
         android:label="news_feed_fragment"
-        tools:layout="@layout/news_feed_fragment" >
+        tools:layout="@layout/news_feed_fragment">
         <action
             android:id="@+id/action_newsFeedFragment_to_addEditNewsFragment"
-            app:destination="@id/addEditNewsFragment" />
+            app:destination="@id/addEditNewsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/addEditNewsFragment"
@@ -55,14 +86,26 @@
         android:id="@+id/userProfileFragment"
         android:name="com.chocomiruku.myhome.presentation.user.UserProfileFragment"
         android:label="user_profile_fragment"
-        tools:layout="@layout/user_profile_fragment" >
+        tools:layout="@layout/user_profile_fragment">
         <action
             android:id="@+id/action_userProfileFragment_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="user"
+            app:argType="com.chocomiruku.myhome.domain.models.User"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.chocomiruku.myhome.presentation.user_edit.EditProfileFragment"
         android:label="edit_profile_fragment"
-        tools:layout="@layout/edit_profile_fragment" />
+        tools:layout="@layout/edit_profile_fragment" >
+        <argument
+            android:name="user"
+            app:argType="com.chocomiruku.myhome.domain.models.User" />
+    </fragment>
 </navigation>

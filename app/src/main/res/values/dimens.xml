@@ -13,4 +13,7 @@
     <dimen name="user_pic_size_chat">50dp</dimen>
     <dimen name="elevation">6dp</dimen>
     <dimen name="character_info_card_corner_radius">20dp</dimen>
+    <dimen name="extra_large_margin">75dp</dimen>
+    <dimen name="btn_size">50dp</dimen>
+    <dimen name="btn_height_multiline">75dp</dimen>
 </resources>

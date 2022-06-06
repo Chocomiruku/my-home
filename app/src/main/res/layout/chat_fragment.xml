@@ -18,13 +18,14 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/chat_list_item_other_user" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/send_layout"
         android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/messages_list"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_20"
         android:paddingHorizontal="@dimen/tiny_margin"
         android:paddingVertical="@dimen/tiny_margin"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -32,38 +33,50 @@
         <Button
             android:id="@+id/add_image_btn"
             style="@style/Widget.App.Button.IconOnly"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:icon="@drawable/ic_add_image" />
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
+            app:icon="@drawable/ic_add_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/message_text_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/message_text_field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
             android:layout_marginHorizontal="@dimen/tiny_margin"
-            android:hint="@string/enter_message">
+            android:hint="@string/enter_message"
+            app:boxBackgroundColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/send_btn"
+            app:layout_constraintStart_toEndOf="@id/add_image_btn"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/message_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="top"
                 android:imeOptions="actionDone"
-                android:inputType="textShortMessage"
-                android:lines="3" />
+                android:inputType="textMultiLine"
+                android:lines="1"
+                android:maxLines="5" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/send_btn"
             style="@style/Widget.App.Button.IconOnly"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/btn_size"
+            android:layout_height="@dimen/btn_size"
             android:backgroundTint="@color/violet_500"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:icon="@drawable/ic_send" />
+            app:icon="@drawable/ic_send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/message_text_field"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

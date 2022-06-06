@@ -17,7 +17,18 @@
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toTopOf="@id/guideline_top"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@color/profile_pic_1" />
+
+    <TextView
+        android:id="@+id/default_pic_text"
+        style="@style/profile_pic_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/letter_example"
+        app:layout_constraintBottom_toBottomOf="@id/user_profile_pic"
+        app:layout_constraintEnd_toEndOf="@id/user_profile_pic"
+        app:layout_constraintStart_toStartOf="@id/user_profile_pic"
+        app:layout_constraintTop_toTopOf="@id/user_profile_pic" />
 
     <TextView
         android:id="@+id/name_text"
@@ -32,28 +43,28 @@
         app:layout_constraintTop_toBottomOf="@id/user_profile_pic" />
 
     <ImageView
-        android:id="@+id/phone_icon"
+        android:id="@+id/email_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/big_margin"
         android:contentDescription="@string/phone_icon_content_description"
-        android:src="@drawable/ic_phone"
-        app:layout_constraintEnd_toStartOf="@id/phone_text"
+        android:src="@drawable/ic_baseline_email_24"
+        app:layout_constraintEnd_toStartOf="@id/email_text"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/name_text" />
 
     <TextView
-        android:id="@+id/phone_text"
+        android:id="@+id/email_text"
         style="@style/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/medium_margin"
-        android:text="@string/phone_example"
+        android:text="@string/email_example"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toEndOf="@id/phone_icon"
-        app:layout_constraintTop_toTopOf="@id/phone_icon" />
+        app:layout_constraintStart_toEndOf="@id/email_icon"
+        app:layout_constraintTop_toTopOf="@id/email_icon" />
 
     <ImageView
         android:id="@+id/contract_icon"
@@ -63,8 +74,8 @@
         android:contentDescription="@string/phone_icon_content_description"
         android:src="@drawable/ic_contract"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@id/phone_icon"
-        app:layout_constraintTop_toBottomOf="@id/phone_text" />
+        app:layout_constraintStart_toStartOf="@id/email_icon"
+        app:layout_constraintTop_toBottomOf="@id/email_text" />
 
     <TextView
         android:id="@+id/contract_text"
@@ -72,8 +83,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/contact_example"
-        app:layout_constraintStart_toStartOf="@id/phone_text"
+        app:layout_constraintStart_toStartOf="@id/email_text"
         app:layout_constraintTop_toTopOf="@id/contract_icon" />
+
+    <Button
+        android:id="@+id/change_role_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height_multiline"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_marginTop="@dimen/big_margin"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/contract_text"
+        tools:text="@string/set_admin_rights" />
 
     <Button
         android:id="@+id/edit_btn"
@@ -91,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="phone_icon, phone_text, contract_icon, contract_text, edit_btn"
+        app:constraint_referenced_ids="email_icon, email_text, contract_icon, contract_text"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Guideline

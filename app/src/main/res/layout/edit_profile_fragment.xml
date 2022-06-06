@@ -10,12 +10,12 @@
         android:id="@+id/name_text_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
         android:layout_marginEnd="@dimen/small_margin"
         android:hint="@string/name"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintTop_toTopOf="@id/user_profile_pic"
         app:layout_constraintEnd_toStartOf="@id/user_profile_pic"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="@id/guideline_top"
         app:startIconDrawable="@drawable/ic_user">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -29,42 +29,42 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_text_field"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginEnd="@dimen/small_margin"
-        android:hint="@string/phone"
-        app:layout_constraintEnd_toStartOf="@id/user_profile_pic"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/name_text_field"
-        app:startIconDrawable="@drawable/ic_phone">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:maxLines="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/contract_text_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
         android:enabled="false"
+        android:layout_marginBottom="@dimen/small_margin"
         android:hint="@string/contract_number"
-        app:layout_constraintEnd_toEndOf="@id/phone_text_field"
+        app:layout_constraintEnd_toStartOf="@id/user_profile_pic"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/phone_text_field"
+        app:layout_constraintBottom_toBottomOf="@id/change_profile_pic"
         app:startIconDrawable="@drawable/ic_contract"
         app:startIconTint="@color/gray_400">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/contract_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_text_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="@id/notifications_switch"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/contract_text_field"
+        app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -79,9 +79,8 @@
         android:layout_height="@dimen/user_pic_size_edit"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@id/phone_text_field"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintTop_toTopOf="@id/name_text_field"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
         tools:src="@tools:sample/avatars" />
 
@@ -93,7 +92,7 @@
         android:text="@string/enable_notifications"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/contract_text_field" />
+        app:layout_constraintTop_toBottomOf="@id/email_text_field" />
 
     <TextView
         android:id="@+id/change_profile_pic"

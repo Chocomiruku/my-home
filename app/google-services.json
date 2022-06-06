@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "475474199013",
+    "project_id": "my-home-course-work",
+    "storage_bucket": "my-home-course-work.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475474199013:android:143f5d094f1f3d4a616f0c",
+        "android_client_info": {
+          "package_name": "com.chocomiruku.myhome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475474199013-23n94j4g4sk4h6elg9t4ntmfs9hooksa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chocomiruku.myhome",
+            "certificate_hash": "fd9f87660d5ddcda954f5575b291cf39b3c5b1a3"
+          }
+        },
+        {
+          "client_id": "475474199013-vrn6t8uk7qib6da4hqt3u8nequc6v66n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFdLa6AmPqw5isPqW8yQoOBLwJsEs_alk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475474199013-vrn6t8uk7qib6da4hqt3u8nequc6v66n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

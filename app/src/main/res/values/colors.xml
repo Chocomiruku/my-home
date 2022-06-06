@@ -15,4 +15,11 @@
     <color name="gray_50">#E2E6EA</color>
     <color name="gray_20">#EEEFF1</color>
     <color name="white">#fafafa</color>
+
+    <color name="profile_pic_1">#82C039</color>
+    <color name="profile_pic_2">#00796b</color>
+    <color name="profile_pic_3">#7B1FA2</color>
+    <color name="profile_pic_4">#1E88E5</color>
+    <color name="profile_pic_5">#FB8C00</color>
+    <color name="profile_pic_6">#E53935</color>
 </resources>
