@@ -2,8 +2,11 @@ package com.chocomiruku.myhome.presentation.user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.chocomiruku.myhome.domain.UserRepository
+import com.chocomiruku.myhome.data.Resource
 import com.chocomiruku.myhome.domain.models.User
+import com.chocomiruku.myhome.domain.usecase.auth.GetCurrentUserIdUseCase
+import com.chocomiruku.myhome.domain.usecase.user.GetCurrentUserUseCase
+import com.chocomiruku.myhome.domain.usecase.user.GetUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,20 +15,27 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserProfileViewModel @Inject constructor(
-    private val userRepo: UserRepository
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
+    private val getUserUseCase: GetUserUseCase,
+    getCurrentUserIdUseCase: GetCurrentUserIdUseCase
 ) : ViewModel() {
-    private val _userDetailsStateFlow: MutableStateFlow<User?> = MutableStateFlow(null)
-    val userDetailsStateFlow: StateFlow<User?> = _userDetailsStateFlow
+    private val _userDetailsStateFlow: MutableStateFlow<Resource<User>> =
+        MutableStateFlow(Resource.Loading)
+    val userDetailsStateFlow: StateFlow<Resource<User>> = _userDetailsStateFlow
 
-    init {
-        getUserDetails()
-    }
+    val currentUserId = getCurrentUserIdUseCase.invoke()
 
-    private fun getUserDetails() {
-        viewModelScope.launch {
-            userRepo.getCurrentUser().collect { user ->
-                user?.let {
-                    _userDetailsStateFlow.value = user
+    fun getUserDetails(userId: String?) {
+        if (userId == null) {
+            viewModelScope.launch {
+                getCurrentUserUseCase.invoke().collect { resource ->
+                    _userDetailsStateFlow.value = resource
+                }
+            }
+        } else {
+            viewModelScope.launch {
+                getUserUseCase.invoke(userId).collect { resource ->
+                    _userDetailsStateFlow.value = resource
                 }
             }
         }

@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
+import com.chocomiruku.myhome.R
 import com.chocomiruku.myhome.databinding.SignInFragmentBinding
 import com.chocomiruku.myhome.util.AuthState
+import com.chocomiruku.myhome.util.isEmailValid
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,13 +32,16 @@ class SignInFragment : Fragment() {
         bindAuthState()
 
         binding.signInBtn.setOnClickListener {
-            viewModel.onSignIn(
-                binding.emailEditText.text.toString(),
-                binding.passwordEditText.text.toString())
+            if (checkInput()) {
+                viewModel.onSignIn(
+                    binding.emailEditText.text.toString(),
+                    binding.passwordEditText.text.toString()
+                )
+            }
         }
 
         binding.getAccessBtn.setOnClickListener {
-            this.findNavController()
+            findNavController()
                 .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
         }
 
@@ -50,23 +55,45 @@ class SignInFragment : Fragment() {
                 AuthState.SIGN_IN_SUCCESS -> findNavController().navigate(
                     SignInFragmentDirections.actionSignInFragmentToNewsFeedFragment()
                 )
-                AuthState.SIGN_IN_ERROR -> showSnackBarError()
-                else -> { }
+                AuthState.SIGN_IN_ERROR -> showSnackBar(R.string.sign_in_failed)
+                else -> {}
             }
         }
     }
 
-    private fun showSnackBarError() {
-        Snackbar.make(
+    private fun checkInput(): Boolean = with(binding) {
+        if (emailEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_email)
+            return false
+        }
+        if (passwordEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_password)
+            return false
+        }
+        if (!isEmailValid(emailEditText.text.toString().trim())) {
+            showSnackBar(R.string.email_invalid)
+            return false
+        }
+        return true
+    }
+
+    private fun showSnackBar(stringId: Int) {
+        val snackBar = Snackbar.make(
             binding.signInBtn,
-            "Ошибка авторизации",
-            Snackbar.LENGTH_LONG
-        )
-            .show()
+            getString(stringId),
+            Snackbar.LENGTH_INDEFINITE
+        ).setAction(R.string.action_ok) {
+        }
+        snackBar.setTextMaxLines(SNACKBAR_MAX_LINES)
+        snackBar.show()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private companion object {
+        const val SNACKBAR_MAX_LINES = 5
     }
 }

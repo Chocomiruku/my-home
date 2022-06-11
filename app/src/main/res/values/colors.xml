@@ -15,6 +15,7 @@
     <color name="gray_50">#E2E6EA</color>
     <color name="gray_20">#EEEFF1</color>
     <color name="white">#fafafa</color>
+    <color name="transparent">#00000000</color>
 
     <color name="profile_pic_1">#82C039</color>
     <color name="profile_pic_2">#00796b</color>

@@ -12,6 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.chocomiruku.myhome.R
 import com.chocomiruku.myhome.databinding.SignUpFragmentBinding
 import com.chocomiruku.myhome.util.AuthState
+import com.chocomiruku.myhome.util.isContractNumberValid
+import com.chocomiruku.myhome.util.isEmailValid
+import com.chocomiruku.myhome.util.isPasswordValid
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,12 +34,14 @@ class SignUpFragment : Fragment() {
         bindAuthState()
 
         binding.signUpBtn.setOnClickListener {
-            viewModel.onSignUp(
-                binding.nameEditText.text.toString(),
-                binding.contractEditText.text.toString(),
-                binding.emailEditText.text.toString(),
-                binding.passwordEditText.text.toString()
-            )
+            if (checkInput()) {
+                viewModel.onSignUp(
+                    binding.nameEditText.text.toString(),
+                    binding.contractEditText.text.toString(),
+                    binding.emailEditText.text.toString(),
+                    binding.passwordEditText.text.toString()
+                )
+            }
         }
 
         return binding.root
@@ -49,9 +54,7 @@ class SignUpFragment : Fragment() {
                 AuthState.SIGN_UP_SUCCESS -> {
                     showSnackBar(R.string.sign_up_success)
                     findNavController().navigate(
-                        SignUpFragmentDirections.actionSignUpFragmentToUserProfileFragment(
-                            null
-                        )
+                        SignUpFragmentDirections.actionSignUpFragmentToUserProfileFragment()
                     )
                 }
                 AuthState.SIGN_UP_ERROR -> showSnackBar(R.string.sign_up_error)
@@ -61,17 +64,55 @@ class SignUpFragment : Fragment() {
         }
     }
 
+    private fun checkInput(): Boolean = with(binding) {
+        if (nameEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_name)
+            return false
+        }
+        if (contractEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_contract)
+            return false
+        }
+        if (!isContractNumberValid(contractEditText.text.toString().trim())) {
+            showSnackBar(R.string.contract_number_invalid)
+            return false
+        }
+        if (emailEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_email)
+            return false
+        }
+        if (!isEmailValid(emailEditText.text.toString().trim())) {
+            showSnackBar(R.string.email_invalid)
+            return false
+        }
+        if (passwordEditText.text.toString().trim().isEmpty()) {
+            showSnackBar(R.string.enter_password)
+            return false
+        }
+        if (!isPasswordValid(passwordEditText.text.toString().trim())) {
+            showSnackBar(R.string.password_invalid)
+            return false
+        }
+        return true
+    }
+
     private fun showSnackBar(stringId: Int) {
-        Snackbar.make(
+        val snackBar = Snackbar.make(
             binding.signUpBtn,
             getString(stringId),
-            Snackbar.LENGTH_LONG
-        )
-            .show()
+            Snackbar.LENGTH_INDEFINITE
+        ).setAction(R.string.action_ok) {
+        }
+        snackBar.setTextMaxLines(SNACKBAR_MAX_LINES)
+        snackBar.show()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private companion object {
+        const val SNACKBAR_MAX_LINES = 5
     }
 }

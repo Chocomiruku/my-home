@@ -13,6 +13,12 @@
         android:menuCategory="secondary"
         android:title="@string/chat" />
     <item
+        android:id="@+id/pollsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_poll"
+        android:menuCategory="secondary"
+        android:title="@string/polls" />
+    <item
         android:id="@+id/userProfileFragment"
         android:enabled="true"
         android:icon="@drawable/ic_user"

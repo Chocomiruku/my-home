@@ -1,0 +1,32 @@
+<vector android:height="10dp" android:viewportHeight="50"
+    android:viewportWidth="50" android:width="10dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:pivotX="25"
+        android:pivotY="25">
+    <path android:fillColor="@color/violet_300" android:pathData="M25,10m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M25,40m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M32.5,12m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M17.5,38m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.93" android:fillColor="@color/violet_300"
+        android:pathData="M17.5,12m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.93"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M32.5,38m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.65" android:fillColor="@color/violet_300"
+        android:pathData="M10,25m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.65"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M40,25m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.86" android:fillColor="@color/violet_300"
+        android:pathData="M12,17.5m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.86"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M38,32.5m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.44" android:fillColor="@color/violet_300"
+        android:pathData="M12,32.5m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.44"/>
+    <path android:fillAlpha="0.3" android:fillColor="@color/violet_300"
+        android:pathData="M38,17.5m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" android:strokeAlpha="0.3"/>
+    </group>
+</vector>

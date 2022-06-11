@@ -1,7 +1,7 @@
 package com.chocomiruku.myhome.data.repository
 
 import android.util.Log
-import com.chocomiruku.myhome.domain.AuthRepository
+import com.chocomiruku.myhome.domain.repository.AuthRepository
 import com.chocomiruku.myhome.util.AuthState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,7 +29,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun signUp(email: String, password: String, contractNumber: String) = flow {
+    override fun signUp(email: String, password: String, contractNumber: String): Flow<AuthState> = flow {
         try {
             emit(AuthState.LOADING)
             checkContract(contractNumber)

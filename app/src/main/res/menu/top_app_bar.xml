@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="@string/exit"
+        android:contentDescription="@string/exit_icon_content_description"
+        app:showAsAction="ifRoom" />
+
+</menu>

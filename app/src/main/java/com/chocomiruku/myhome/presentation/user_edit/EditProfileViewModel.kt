@@ -2,8 +2,9 @@ package com.chocomiruku.myhome.presentation.user_edit
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.chocomiruku.myhome.domain.UserRepository
-import com.chocomiruku.myhome.domain.models.User
+import com.chocomiruku.myhome.domain.usecase.images.UploadImageUseCase
+import com.chocomiruku.myhome.domain.usecase.user.UpdateCurrentUserUseCase
+import com.chocomiruku.myhome.util.ImageType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,40 +13,35 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EditProfileViewModel @Inject constructor(
-    private val userRepo: UserRepository
+    private val updateCurrentUserUseCase: UpdateCurrentUserUseCase,
+    private val uploadImageUseCase: UploadImageUseCase
 ) : ViewModel() {
-    private val _userDetailsStateFlow: MutableStateFlow<User?> = MutableStateFlow(null)
-    val userDetailsStateFlow: StateFlow<User?> = _userDetailsStateFlow
+    private val _navigateUpFlow: MutableStateFlow<Boolean> =
+        MutableStateFlow(false)
+    val navigateUpFlow: StateFlow<Boolean> = _navigateUpFlow
 
-    init {
-        getUserDetails()
-    }
-
-    private fun getUserDetails() {
+    fun updateUserDetails(
+        name: String,
+        email: String,
+        imageBytes: ByteArray?,
+        notifications: Boolean
+    ) {
         viewModelScope.launch {
-            userRepo.getCurrentUser().collect { user ->
-                user?.let {
-                    _userDetailsStateFlow.value = user
-                }
-            }
-        }
-    }
-
-    fun updateUserDetails(name: String, email: String) {
-        viewModelScope.launch {
-            userRepo.updateCurrentUser(User(name, email))
-        }
-    }
-
-    fun uploadProfilePic(picBytes: ByteArray?) {
-        picBytes?.let {
-            viewModelScope.launch {
-                userRepo.uploadProfilePic(picBytes).collect { ref ->
-                    ref?.let {
-                        userRepo.updateCurrentUser(User("", "", ref))
+            if (imageBytes != null) {
+                uploadImageUseCase.invoke(imageBytes, TYPE).collect { imageUri ->
+                    imageUri?.let {
+                        updateCurrentUserUseCase.invoke(name, email, imageUri, notifications)
                     }
+                    _navigateUpFlow.value = true
                 }
+            } else {
+                updateCurrentUserUseCase.invoke(name, email, null, notifications)
+                _navigateUpFlow.value = true
             }
         }
+    }
+
+    private companion object {
+        val TYPE = ImageType.USER
     }
 }

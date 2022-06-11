@@ -5,11 +5,15 @@
       <map>
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable-v24/ic_baseline_arrow_back.xml" value="0.13" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.13" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable-v24/ic_broken_image.xml" value="0.17" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable-v24/ic_loading.xml" value="0.1415" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/chat_background.xml" value="0.191" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_add_image.xml" value="0.1915" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.191" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.191" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1515" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.191" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.17" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.191" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1915" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_chat.xml" value="0.13" />
@@ -17,25 +21,33 @@
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_home.xml" value="0.13" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_news.xml" value="0.13" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_phone.xml" value="0.1915" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_poll.xml" value="0.1515" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/ic_user.xml" value="0.13" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/drawable/item_background.xml" value="0.1915" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/add_edit_news_fragment.xml" value="0.259375" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/add_poll_fragment.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/chat_fragment.xml" value="0.264" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/chat_list_item.xml" value="0.264" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/chat_list_item_current_user.xml" value="0.264" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/chat_list_item_other_user.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/dialog_phone_code.xml" value="0.259375" />
-        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/edit_profile_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/edit_profile_fragment.xml" value="0.176" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/enter_code_fragment.xml" value="0.259375" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/fragment_add_poll.xml" value="0.259375" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/fragment_polls.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/item_background.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/news_feed_fragment.xml" value="0.259375" />
-        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/news_list_item.xml" value="0.2" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/news_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/poll_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/polls_fragment.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/sign_in_fragment.xml" value="0.264" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/sign_up_fragment.xml" value="0.2" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/splash_fragment.xml" value="0.259375" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/layout/user_profile_fragment.xml" value="0.264" />
         <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/menu/bottom_navigation.xml" value="0.259375" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/menu/top_app_bar.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/Chocomilk/AndroidStudioProjects/my-home/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17" />
       </map>
     </option>
   </component>

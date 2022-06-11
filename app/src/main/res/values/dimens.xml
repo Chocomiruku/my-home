@@ -8,12 +8,16 @@
     <dimen name="tiny_margin">6dp</dimen>
     <dimen name="small_margin">12dp</dimen>
     <dimen name="list_item_elevation">8dp</dimen>
-    <dimen name="user_pic_size">220dp</dimen>
-    <dimen name="user_pic_size_edit">130dp</dimen>
+    <dimen name="user_pic_size">260dp</dimen>
+    <dimen name="user_pic_size_edit">220dp</dimen>
     <dimen name="user_pic_size_chat">50dp</dimen>
     <dimen name="elevation">6dp</dimen>
     <dimen name="character_info_card_corner_radius">20dp</dimen>
     <dimen name="extra_large_margin">75dp</dimen>
+    <dimen name="icon_size">30dp</dimen>
     <dimen name="btn_size">50dp</dimen>
     <dimen name="btn_height_multiline">75dp</dimen>
+    <dimen name="image_max_height">240dp</dimen>
+    <dimen name="chat_image_max_height">180dp</dimen>
+    <dimen name="horizontal_margin_news">30dp</dimen>
 </resources>

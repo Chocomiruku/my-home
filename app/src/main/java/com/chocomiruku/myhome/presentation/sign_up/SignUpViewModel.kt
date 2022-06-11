@@ -2,10 +2,11 @@ package com.chocomiruku.myhome.presentation.sign_up
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.chocomiruku.myhome.domain.AuthRepository
-import com.chocomiruku.myhome.domain.UserRepository
 import com.chocomiruku.myhome.domain.models.User
+import com.chocomiruku.myhome.domain.usecase.auth.SignUpUseCase
+import com.chocomiruku.myhome.domain.usecase.user.AddUserUseCase
 import com.chocomiruku.myhome.util.AuthState
+import com.chocomiruku.myhome.util.generateRandomColor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-    private val authRepo: AuthRepository,
-    private val userRepo: UserRepository
+    private val signUpUseCase: SignUpUseCase,
+    private val addUserUseCase: AddUserUseCase
 ) : ViewModel() {
 
     private val _authStateFlow: MutableStateFlow<AuthState?> =
@@ -24,9 +25,19 @@ class SignUpViewModel @Inject constructor(
 
     fun onSignUp(name: String, contractNumber: String, email: String, password: String) {
         viewModelScope.launch {
-            authRepo.signUp(email, password, contractNumber).collect { authResult ->
+            signUpUseCase.invoke(email, password, contractNumber).collect { authResult ->
                 if (authResult == AuthState.SIGN_UP_SUCCESS) {
-                    userRepo.addNewUser(User(name, email, contractNumber))
+                    addUserUseCase.invoke(
+                        User(
+                            uid = "",
+                            name = name,
+                            email = email,
+                            defaultColorId = generateRandomColor(),
+                            contractNumber = contractNumber,
+                            notifications = true,
+                            admin = false
+                        )
+                    )
                 }
 
                 _authStateFlow.value = authResult

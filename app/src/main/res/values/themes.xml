@@ -21,5 +21,9 @@
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
         <!-- Switch style. -->
         <item name="switchStyle">@style/Widget.App.Switch</item>
+        <!-- Checkbox style. -->
+        <item name="checkboxStyle">@style/Widget.App.CheckBox</item>
+        <!-- RadioButton style. -->
+        <item name="radioButtonStyle">@style/Widget.App.RadioButton</item>
     </style>
 </resources>

@@ -22,21 +22,20 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.chocomiruku.myhome.presentation.sign_up.SignUpFragment"
-        android:label="SignUpFragment" >
+        android:label="SignUpFragment">
         <action
             android:id="@+id/action_signUpFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -76,12 +75,21 @@
         android:id="@+id/addEditNewsFragment"
         android:name="com.chocomiruku.myhome.presentation.news.AddEditNewsFragment"
         android:label="add_edit_news_fragment"
-        tools:layout="@layout/add_edit_news_fragment" />
+        tools:layout="@layout/add_edit_news_fragment" >
+        <argument
+            android:name="news"
+            app:argType="com.chocomiruku.myhome.domain.models.News"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.chocomiruku.myhome.presentation.chat.ChatFragment"
         android:label="chat_fragment"
-        tools:layout="@layout/chat_fragment" />
+        tools:layout="@layout/chat_fragment" >
+        <action
+            android:id="@+id/action_chatFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.chocomiruku.myhome.presentation.user.UserProfileFragment"
@@ -97,15 +105,32 @@
         <argument
             android:name="user"
             app:argType="com.chocomiruku.myhome.domain.models.User"
-            app:nullable="true" />
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.chocomiruku.myhome.presentation.user_edit.EditProfileFragment"
         android:label="edit_profile_fragment"
-        tools:layout="@layout/edit_profile_fragment" >
+        tools:layout="@layout/edit_profile_fragment">
         <argument
             android:name="user"
             app:argType="com.chocomiruku.myhome.domain.models.User" />
     </fragment>
+    <fragment
+        android:id="@+id/pollsFragment"
+        android:name="com.chocomiruku.myhome.presentation.polls_list.PollsFragment"
+        android:label="PollsFragment" >
+        <action
+            android:id="@+id/action_pollsFragment_to_addPollFragment"
+            app:destination="@id/addPollFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addPollFragment"
+        android:name="com.chocomiruku.myhome.presentation.poll.AddPollFragment"
+        android:label="AddPollFragment" />
 </navigation>

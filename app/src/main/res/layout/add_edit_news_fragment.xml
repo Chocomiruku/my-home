@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".presentation.news.AddEditNewsFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -23,8 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
-            android:inputType="text"
-            android:maxLines="2" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,8 +45,8 @@
             android:id="@+id/news_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
             android:gravity="top"
+            android:imeOptions="actionDone"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="12" />
@@ -56,8 +56,8 @@
     <Button
         android:id="@+id/add_image_btn"
         style="@style/Widget.App.Button.IconOnly"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/btn_size"
+        android:layout_height="@dimen/btn_size"
         app:icon="@drawable/ic_add_image"
         app:layout_constraintBottom_toTopOf="@id/publish_btn"
         app:layout_constraintEnd_toEndOf="@id/news_text_field"
@@ -69,8 +69,8 @@
         style="@style/label_default"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
         android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
         android:text="@string/image_added"
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/add_image_btn"
@@ -85,10 +85,22 @@
         android:layout_marginHorizontal="@dimen/medium_margin"
         android:layout_marginTop="@dimen/medium_margin"
         android:text="@string/publish"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/add_image_btn" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_margin"
+        android:backgroundTint="@color/green_200"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/publish_btn"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.user_edit.EditProfileFragment">
@@ -10,12 +11,12 @@
         android:id="@+id/name_text_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/small_margin"
-        android:hint="@string/name"
+        android:layout_marginHorizontal="@dimen/medium_margin"
         android:layout_marginTop="@dimen/small_margin"
-        app:layout_constraintTop_toTopOf="@id/user_profile_pic"
-        app:layout_constraintEnd_toStartOf="@id/user_profile_pic"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/change_profile_pic"
         app:startIconDrawable="@drawable/ic_user">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -32,13 +33,13 @@
         android:id="@+id/contract_text_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginHorizontal="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/small_margin"
         android:enabled="false"
-        android:layout_marginBottom="@dimen/small_margin"
         android:hint="@string/contract_number"
-        app:layout_constraintEnd_toStartOf="@id/user_profile_pic"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintBottom_toBottomOf="@id/change_profile_pic"
+        app:layout_constraintTop_toBottomOf="@id/name_text_field"
         app:startIconDrawable="@drawable/ic_contract"
         app:startIconTint="@color/gray_400">
 
@@ -56,9 +57,10 @@
         android:id="@+id/email_text_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginHorizontal="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/small_margin"
         android:hint="@string/email"
-        app:layout_constraintEnd_toEndOf="@id/notifications_switch"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/contract_text_field"
         app:startIconDrawable="@drawable/ic_baseline_email_24">
@@ -74,21 +76,35 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/user_profile_pic"
+        android:id="@+id/profile_image"
         android:layout_width="@dimen/user_pic_size_edit"
         android:layout_height="@dimen/user_pic_size_edit"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="@id/guideline_top"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@color/green_200" />
+
+    <TextView
+        android:id="@+id/default_image_text"
+        style="@style/profile_pic_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/letter_example"
+        android:textSize="100sp"
+        app:layout_constraintBottom_toBottomOf="@id/profile_image"
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintStart_toStartOf="@id/profile_image"
+        app:layout_constraintTop_toTopOf="@id/profile_image" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/notifications_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:checked="true"
+        android:layout_marginTop="@dimen/small_margin"
         android:text="@string/enable_notifications"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
@@ -101,20 +117,34 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny_margin"
         android:text="@string/change_profile_pic"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/user_profile_pic"
-        app:layout_constraintTop_toBottomOf="@id/user_profile_pic" />
+        app:layout_constraintEnd_toEndOf="@id/profile_image"
+        app:layout_constraintStart_toStartOf="@id/profile_image"
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
     <Button
         android:id="@+id/save_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/btn_height"
         android:layout_marginHorizontal="@dimen/medium_margin"
-        android:layout_marginTop="@dimen/big_margin"
+        android:layout_marginTop="@dimen/tiny_margin"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/notifications_switch" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_margin"
+        android:backgroundTint="@color/green_200"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/save_btn"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -135,6 +165,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/big_margin" />
+        app:layout_constraintGuide_begin="@dimen/medium_margin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
