@@ -62,6 +62,7 @@ class ChatFragment : Fragment() {
                         binding.messageEditText.text?.clear()
                         binding.linearProgressIndicator.isVisible = false
                         selectedImageBytes = null
+                        binding.imageInfoText.isVisible = false
                     }
                 }
             }
