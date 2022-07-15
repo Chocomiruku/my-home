@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.RadioButton
 import androidx.core.content.ContextCompat.getColor
-import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.res.ResourcesCompat.getFont
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
@@ -24,7 +23,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class PollAdapter(
-    private val isAdmin: Boolean?,
+    private val specialRights: Boolean?,
     private val onVote: (pollId: String, selectedOptions: List<String>) -> Unit,
     private val onClose: (pollId: String) -> Unit
 ) :
@@ -32,7 +31,7 @@ class PollAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val poll = getItem(position)
-        holder.bind(poll, isAdmin, onVote, onClose)
+        holder.bind(poll, specialRights, onVote, onClose)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -46,7 +45,7 @@ class PollAdapter(
 
         fun bind(
             poll: Poll,
-            isAdmin: Boolean?,
+            specialRights: Boolean?,
             onVote: (pollId: String, selectedOptions: List<String>) -> Unit,
             onClose: (pollId: String) -> Unit
         ) = with(binding) {
@@ -59,7 +58,7 @@ class PollAdapter(
             } else {
                 bindOptions(poll, onVote)
             }
-            if (isAdmin == true) {
+            if (specialRights == true) {
                 closeBtn.apply {
                     isVisible = !poll.closed
                     setOnClickListener { showAlertDialog { onClose(poll.pollId) } }

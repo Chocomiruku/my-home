@@ -1,7 +1,6 @@
 package com.chocomiruku.myhome.presentation.user
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.chocomiruku.myhome.R
 import com.chocomiruku.myhome.data.Resource
 import com.chocomiruku.myhome.databinding.UserProfileFragmentBinding
+import com.chocomiruku.myhome.domain.models.User
+import com.chocomiruku.myhome.util.UserRole
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +48,30 @@ class UserProfileFragment : Fragment() {
 
         }
 
+        binding.changeRoleBtn.setOnClickListener {
+            viewModel.changeRole()
+        }
+
         return binding.root
+    }
+
+    private fun bindRole(user: User) = with(binding) {
+        viewModel.currentRoleStateFlow.asLiveData().observe(viewLifecycleOwner) { role ->
+            if (role == UserRole.ADMIN) {
+                changeRoleBtn.isVisible =
+                    user.uid != viewModel.currentUserId
+
+                changeRoleBtn.text =
+                    if (user.role == UserRole.MODERATOR) getString(R.string.remove_moderator_rights) else
+                        getString(R.string.set_moderator_rights)
+            }
+        }
+
+        viewModel.roleChanged.asLiveData().observe(viewLifecycleOwner) {
+            if (it == true) {
+                showSnackBar(R.string.role_changed)
+            }
+        }
     }
 
     private fun bindUserDetails(uid: String?) = with(binding) {
@@ -66,7 +90,12 @@ class UserProfileFragment : Fragment() {
                         defaultImageText.isVisible = user.imageUri == null
 
                         if (user.imageUri != null) {
-                            profileImage.setBackgroundColor(getColor(requireContext(), R.color.white))
+                            profileImage.setBackgroundColor(
+                                getColor(
+                                    requireContext(),
+                                    R.color.white
+                                )
+                            )
                             loadImage(user.imageUri)
                         } else {
                             profileImage.setBackgroundColor(user.defaultColorId)
@@ -75,6 +104,7 @@ class UserProfileFragment : Fragment() {
                             userDetailsGroup.isVisible = true
                         }
                         currentUserGroup.isVisible = user.uid == viewModel.currentUserId
+                        bindRole(user)
                     }
                 }
                 is Resource.Failure -> {

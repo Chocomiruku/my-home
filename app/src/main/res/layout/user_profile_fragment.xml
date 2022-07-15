@@ -104,18 +104,6 @@
         app:layout_constraintTop_toTopOf="@id/contract_icon" />
 
     <Button
-        android:id="@+id/change_role_btn"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/btn_height_multiline"
-        android:layout_marginHorizontal="@dimen/small_margin"
-        android:layout_marginTop="@dimen/big_margin"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/contract_text"
-        tools:text="@string/set_admin_rights" />
-
-    <Button
         android:id="@+id/edit_btn"
         android:layout_width="0dp"
         android:layout_height="@dimen/btn_height"
@@ -125,6 +113,18 @@
         app:layout_constraintEnd_toEndOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/contract_text" />
+
+    <Button
+        android:id="@+id/change_role_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_marginTop="@dimen/big_margin"
+        android:text="@string/set_moderator_rights"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/name_text" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/user_details_group"

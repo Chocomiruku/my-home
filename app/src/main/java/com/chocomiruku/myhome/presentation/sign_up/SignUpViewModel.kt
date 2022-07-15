@@ -35,7 +35,7 @@ class SignUpViewModel @Inject constructor(
                             defaultColorId = generateRandomColor(),
                             contractNumber = contractNumber,
                             notifications = true,
-                            admin = false
+                            userRole = "default"
                         )
                     )
                 }

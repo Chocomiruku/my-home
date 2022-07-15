@@ -1,6 +1,5 @@
 package com.chocomiruku.myhome.data.repository
 
-import android.net.Uri
 import android.util.Log
 import com.chocomiruku.myhome.domain.repository.ImageRepository
 import com.chocomiruku.myhome.util.ImageType

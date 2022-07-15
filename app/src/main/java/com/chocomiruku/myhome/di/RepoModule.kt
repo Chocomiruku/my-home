@@ -5,11 +5,7 @@ import com.chocomiruku.myhome.data.repository.MessageRepositoryImpl
 import com.chocomiruku.myhome.data.repository.NewsRepositoryImpl
 import com.chocomiruku.myhome.data.repository.PollRepositoryImpl
 import com.chocomiruku.myhome.data.repository.UserRepositoryImpl
-import com.chocomiruku.myhome.domain.repository.ImageRepository
-import com.chocomiruku.myhome.domain.repository.MessageRepository
-import com.chocomiruku.myhome.domain.repository.NewsRepository
-import com.chocomiruku.myhome.domain.repository.PollRepository
-import com.chocomiruku.myhome.domain.repository.UserRepository
+import com.chocomiruku.myhome.domain.repository.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

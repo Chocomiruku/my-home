@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.chocomiruku.myhome.R
 import com.chocomiruku.myhome.data.Resource
 import com.chocomiruku.myhome.databinding.NewsFeedFragmentBinding
+import com.chocomiruku.myhome.util.UserRole
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -74,9 +75,9 @@ class NewsFeedFragment : Fragment() {
             when (resource) {
                 is Resource.Success -> {
                     resource.data?.let { user ->
-                        addBtn.isVisible = user.admin
+                        addBtn.isVisible = user.role != UserRole.DEFAULT
                         newsAdapter = NewsAdapter(
-                            isAdmin = user.admin,
+                            specialRights = user.role != UserRole.DEFAULT,
                             onDelete = { newsId ->
                                 viewModel.deleteNews(newsId)
                                 scrollToTop()

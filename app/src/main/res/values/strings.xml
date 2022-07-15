@@ -33,7 +33,6 @@
     <string name="add_news_fab_content_desc">Добавить новость</string>
     <string name="email_example">test@gmail.com</string>
     <string name="letter_example">А</string>
-    <string name="set_admin_rights">Назначить администратором</string>
     <string name="password">Пароль</string>
     <string name="sign_up_error">При регистрации возникла неизвестная ошибка. Пожалуйста, попробуйте снова.</string>
     <string name="sign_up_success">Регистрация прошла успешно.</string>
@@ -72,4 +71,7 @@
     <string name="poll_closed">Опрос закрыт.</string>
     <string name="confirm_close">Закрыть опрос</string>
     <string name="close_question">Вы действительно хотите закрыть опрос?</string>
+    <string name="set_moderator_rights">Назначить модератором</string>
+    <string name="remove_moderator_rights">Убрать права модератора</string>
+    <string name="role_changed">Роль пользователя была успешно сохранена.</string>
 </resources>

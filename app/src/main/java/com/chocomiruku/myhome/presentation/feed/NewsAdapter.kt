@@ -17,14 +17,14 @@ import com.chocomiruku.myhome.util.convertToDateString
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class NewsAdapter(
-    private val isAdmin: Boolean?,
+    private val specialRights: Boolean?,
     private val onDelete: (newsId: String) -> Unit
 ) :
     ListAdapter<News, NewsAdapter.ViewHolder>(NewsDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val news = getItem(position)
-        holder.bind(isAdmin, news, onDelete)
+        holder.bind(specialRights, news, onDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,14 +37,14 @@ class NewsAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            isAdmin: Boolean?,
+            specialRights: Boolean?,
             news: News,
             onDelete: (newsId: String) -> Unit
         ) = with(binding) {
             titleText.text = news.title
             newsText.text = news.text
             dateText.text = news.date.convertToDateString()
-            isAdmin?.let {
+            specialRights?.let {
                 editBtn.apply {
                     isVisible = it
                     setOnClickListener {

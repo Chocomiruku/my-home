@@ -4,6 +4,7 @@ import android.util.Log
 import com.chocomiruku.myhome.data.Resource
 import com.chocomiruku.myhome.domain.models.User
 import com.chocomiruku.myhome.domain.repository.UserRepository
+import com.chocomiruku.myhome.util.UserRole
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -58,7 +59,12 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun updateCurrentUser(name: String, email: String, imageUri: String?, notifications: Boolean) {
+    override suspend fun updateCurrentUser(
+        name: String,
+        email: String,
+        imageUri: String?,
+        notifications: Boolean
+    ) {
         val userFieldMap = mutableMapOf<String, Any>()
         if (name.isNotBlank()) userFieldMap["name"] = name
         if (email.isNotBlank()) userFieldMap["email"] = email
@@ -70,6 +76,26 @@ class UserRepositoryImpl @Inject constructor(
             Log.d(TAG, "updatingUser:success")
         } catch (e: Exception) {
             Log.d(TAG, "updatingUser:failure", e)
+        }
+    }
+
+    override suspend fun changeRole(user: User) {
+        val userDocRef = firestore.document(
+            "users/${user.uid}"
+        )
+        val userFieldMap = mutableMapOf<String, Any>()
+
+        when (user.role) {
+            UserRole.MODERATOR -> userFieldMap["userRole"] = "default"
+            UserRole.DEFAULT -> userFieldMap["userRole"] = "moderator"
+            else -> {}
+        }
+
+        try {
+            userDocRef.update(userFieldMap).await()
+            Log.d(TAG, "changingRole:success")
+        } catch (e: Exception) {
+            Log.d(TAG, "changingRole:failure", e)
         }
     }
 

@@ -14,6 +14,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.chocomiruku.myhome.R
 import com.chocomiruku.myhome.databinding.ChatListItemBinding
 import com.chocomiruku.myhome.domain.models.Message
+import com.chocomiruku.myhome.util.UserRole
 import com.chocomiruku.myhome.util.convertToDateString
 
 class MessageAdapter(
@@ -55,8 +56,12 @@ class MessageAdapter(
             user?.let {
                 messageTextOtherUser.text = message.text
                 timeTextOtherUser.text = message.date.convertToDateString()
-                nameTextOtherUser.text =
-                    if (user.admin) "${user.name} (Администратор)" else user.name
+
+                nameTextOtherUser.text = when (user.role) {
+                    UserRole.ADMIN -> "${user.name} (Администратор)"
+                    UserRole.MODERATOR -> "${user.name} (Модератор)"
+                    else -> user.name
+                }
 
                 if (user.imageUri != null) {
                     defaultImageText.isVisible = false

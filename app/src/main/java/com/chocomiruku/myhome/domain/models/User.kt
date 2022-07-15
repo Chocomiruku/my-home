@@ -1,7 +1,9 @@
 package com.chocomiruku.myhome.domain.models
 
 import android.os.Parcelable
+import com.chocomiruku.myhome.util.UserRole
 import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.Exclude
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -14,7 +16,7 @@ data class User(
     val defaultColorId: Int = 0,
     val imageUri: String? = null,
     val notifications: Boolean,
-    val admin: Boolean
+    val userRole: String
 ) : Parcelable {
     constructor() : this(
         uid = "",
@@ -24,6 +26,17 @@ data class User(
         contractNumber = "",
         imageUri = null,
         notifications = true,
-        admin = false
+        userRole = "default"
     )
+
+    @get:Exclude
+    val role: UserRole
+        get() {
+            return when (userRole) {
+                "default" -> UserRole.DEFAULT
+                "moderator" -> UserRole.MODERATOR
+                "admin" -> UserRole.ADMIN
+                else -> { throw Exception("Incorrect role") }
+            }
+        }
 }
